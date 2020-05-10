@@ -100,20 +100,7 @@
 }
 
 
-.mobile-only, 
-%mobile-only {
-  @include breakpoint (xs){ display: none; }
-}
 
-.small-only, 
-%small-only {
-  @include breakpoint (sm) { display: none; }
-}
-
-.desktop-only, 
-%desktop-only {
-  @include breakpoint (small-only) { display: none; }
-}
 
 // mixins -------------------------------------------------------------------------------
 @mixin border {

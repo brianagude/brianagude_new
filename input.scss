@@ -1,7 +1,8 @@
 // sass --watch input.scss:output.css
-
+// utils & imports ------------------------------------------------------------------------------------------------------------------------------
 @import 'reset';
-// @import 'utils';
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:100,300,400,500,600,700&display=swap');
+
 @mixin bp($class) {
   @if $class == mobile-only {
     @media (max-width: 359px) { @content; }
@@ -40,24 +41,44 @@
   }
 }
 
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:100,300,400,500,600,700&display=swap');
+.mobile-only, 
+%mobile-only {
+  @include bp (xs){ display: none; }
+}
+
+.small-only, 
+%small-only {
+  @include bp (sm) { display: none; }
+}
+
+.desktop-only, 
+%desktop-only {
+  @include bp (small-only) { display: none; }
+}
+
+// variables ------------------------------------------------------------------------------------------------------------------------------
+
 $primary-font: 'IBM Plex Mono', monospace;
 
 $black: #000;
 $white: #fff;
+
 $gutter: 16px;
 $margin: $gutter * 2;
+$textSize: 20px;
+$headingSize: 24px;
+
+// page styles ------------------------------------------------------------------------------------------------------------------------------
 
 body {
   font-family: $primary-font;
   color: $black;
-  font-size: 20px;
+  font-size: $textSize;
   line-height: 1.33;
   background-image: url('grid.jpg');
   padding: $margin;
   position: relative;
   min-height: 100vh;
-
   position: relative;
 }
 
@@ -67,7 +88,6 @@ button {
   display: inline-block;
   color: $black;
   font-family: $primary-font;
-  // margin-bottom: $gutter / 4;
 
   &:hover {
     font-weight: 700;
@@ -79,7 +99,8 @@ button {
   position: absolute;
   bottom: $margin;
   left: $margin;
-  // text-align: right;
+
+  a:hover { text-decoration: line-through;}
 
   @include bp(sm){
     top: $margin;
@@ -91,103 +112,100 @@ button {
 }
 
 .bio {
-  font-size: 24px;
+  font-size: $headingSize;
   @include bp(sm){
     margin-right: 120px;
     max-width: 560px;
   }
 }
 
-.projects-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.project-media,
-.project-buttons,
-.project-info {
-  display: none;
-
-  @include bp(sm){
-    display: block;
-  }
-}
-
-.project-links {
-  display: flex;
-  flex-direction: column;
-  font-weight: 700;
-  margin-top: $gutter * 1.5;
-
-  @include bp(sm){ display: none; }
-
+.info {
+  max-width: 50%;
+  text-align: right;
+  margin-left: auto;
+  margin-bottom: $margin;
 }
 
 .projects {
   @include bp(sm){
-    position: sticky;
+    position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 512px;
+  }
 
-    // display: grid;
-    // grid-template-columns: 1fr 1fr;
+  @include bp(lg){
+    left: unset;
+    right: $margin;
+    transform: none;
+    overflow: scroll;
+  }
 
+  &-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-.project-link { 
-  font-weight: 700; 
-  // margin-bottom: $gutter;
-}
-.project-year { 
-  font-weight: 700; 
-  // margin-bottom: $gutter;
-}
-// .project-type,
-// .project-utility,
-// .project-year {
-//   font-size: 16px;
-// }
+.project {
 
-.project-utility { margin-bottom: $gutter; }
-
-.project-media {
-  @include bp(sm){
-    grid-column: 1/-1;
+  &-media,
+  &-buttons,
+  &-info {
+    display: none;
+    @include bp(sm){ display: block; }
   }
-}
 
-.project-buttons {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  // margin-bottom: $gutter;
+  &-media {
+    @include bp(sm){
+      grid-column: 1/-1;
+    }
+  }
 
-  .slick-track {
+  &-buttons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    .slick-track {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slick-slide { width: 100% !important; }
+    .slick-list { padding: 0 !important; }
+    .slick-current { 
+      button { font-weight: 700; }
+    }
+
+    button { 
+      text-align: left; 
+      font-size: $textSize;
+      line-height: 1.33;
+
+      background: none;
+      border: none; 
+      outline: none;
+    }
+  }
+
+  &-links {
     display: flex;
     flex-direction: column;
+    font-weight: 700;
+    margin-top: $gutter * 1.5;
+
+    @include bp(sm){ display: none; }
   }
 
-  .slick-slide { width: 100% !important; }
-  .slick-list { padding: 0 !important; }
-  button { 
-    text-align: left; 
-    font-size: 20px;
-    line-height: 1.33;
+  &-link,
+  &-year {
+    font-weight: 700; 
+  }
+
+  &-utility {
+    margin-bottom: $gutter;
   }
 }
-
-// .media { 
-  .info {
-    // max-width: 60%;
-    max-width: 50%;
-    text-align: right;
-    margin-left: auto;
-    margin-bottom: $margin;
-  }
-// }
-
-// .project-media { background: yellow; }
