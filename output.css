@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:100,300,400,500,600,700&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+img, iframe {
+  vertical-align: bottom;
+  max-width: 100%; }
+
+input, textarea, select {
+  font: inherit; }
+
+button {
+  padding: 0;
+  margin: 0; }
+
+b {
+  font-weight: 700; }
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility; }
+
+body {
+  font-family: "IBM Plex Mono", monospace;
+  color: #000;
+  font-size: 20px;
+  line-height: 1.33;
+  background-image: url("grid.jpg");
+  padding: 32px;
+  position: relative;
+  min-height: 100vh;
+  position: relative; }
+
+a,
+button {
+  text-decoration: none;
+  display: inline-block;
+  color: #000;
+  font-family: "IBM Plex Mono", monospace; }
+  a:hover,
+  button:hover {
+    font-weight: 700; }
+
+.contact {
+  font-weight: 700;
+  position: absolute;
+  bottom: 32px;
+  left: 32px; }
+  @media (min-width: 768px) {
+    .contact {
+      top: 32px;
+      right: 32px;
+      bottom: unset;
+      left: unset;
+      text-align: left; } }
+
+.bio {
+  font-size: 24px; }
+  @media (min-width: 768px) {
+    .bio {
+      margin-right: 120px;
+      max-width: 560px; } }
+
+.projects-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr; }
+
+.project-media,
+.project-buttons,
+.project-info {
+  display: none; }
+  @media (min-width: 768px) {
+    .project-media,
+    .project-buttons,
+    .project-info {
+      display: block; } }
+
+.project-links {
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  margin-top: 24px; }
+  @media (min-width: 768px) {
+    .project-links {
+      display: none; } }
+
+@media (min-width: 768px) {
+  .projects {
+    position: sticky;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 512px; } }
+
+.project-link {
+  font-weight: 700; }
+
+.project-year {
+  font-weight: 700; }
+
+.project-utility {
+  margin-bottom: 16px; }
+
+@media (min-width: 768px) {
+  .project-media {
+    grid-column: 1/-1; } }
+
+.project-buttons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2; }
+  .project-buttons .slick-track {
+    display: flex;
+    flex-direction: column; }
+  .project-buttons .slick-slide {
+    width: 100% !important; }
+  .project-buttons .slick-list {
+    padding: 0 !important; }
+  .project-buttons button {
+    text-align: left;
+    font-size: 20px;
+    line-height: 1.33; }
+
+.info {
+  max-width: 50%;
+  text-align: right;
+  margin-left: auto;
+  margin-bottom: 32px; }
+
+/*# sourceMappingURL=output.css.map */
