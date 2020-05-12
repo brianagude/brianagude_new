@@ -62,6 +62,11 @@ $primary-font: 'IBM Plex Mono', monospace;
 
 $black: #000;
 $white: #fff;
+$gray:  #555;
+$red:   red;
+$green: green;
+$blue:  blue;
+$pink:  pink;
 
 $gutter: 16px;
 $margin: $gutter * 2;
@@ -69,6 +74,10 @@ $textSize: 20px;
 $headingSize: 24px;
 
 // page styles ------------------------------------------------------------------------------------------------------------------------------
+// * {
+//   transition: all 15s linear;
+//   &:hover {transition: 0s; }
+// }
 
 body {
   font-family: $primary-font;
@@ -91,6 +100,7 @@ button {
 
   &:hover {
     font-weight: 700;
+    cursor: pointer;
   }
 }
 
@@ -100,7 +110,10 @@ button {
   bottom: $margin;
   left: $margin;
 
-  a:hover { text-decoration: line-through;}
+  a:nth-of-type(1):hover { color: $blue; }
+  a:nth-of-type(2):hover { color: $pink; }
+  a:nth-of-type(3):hover { color: $green; }
+  a:nth-of-type(4):hover { color: $red; }
 
   @include bp(sm){
     top: $margin;
@@ -113,6 +126,21 @@ button {
 
 .bio {
   font-size: $headingSize;
+
+  span {
+    transition: all 10s cubic-bezier(.83,1.61,.96,.01);
+    // font-weight: 500;
+    // transition-delay: 1s;
+
+    &:hover {
+      transition: 0s;
+      &:nth-child(1n) { color: $blue; }
+      &:nth-child(2n) { color: $pink; }
+      &:nth-child(3n) { color: $red; }
+      &:nth-child(4n) { color: $green; }
+    }
+  }
+
   @include bp(sm){
     margin-right: 120px;
     max-width: 560px;
@@ -158,6 +186,10 @@ button {
   }
 
   &-media {
+    // bottom: $margin;
+
+    // .media { height: calc(100% + 32px); }
+    
     @include bp(sm){
       grid-column: 1/-1;
     }
@@ -203,6 +235,14 @@ button {
   &-link,
   &-year {
     font-weight: 700; 
+  }
+
+  &-link {
+    text-decoration: underline;
+    &:hover { 
+      color: $gray; 
+      font-weight: 700;
+    }
   }
 
   &-utility {

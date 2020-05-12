@@ -93,15 +93,22 @@ button {
   font-family: "IBM Plex Mono", monospace; }
   a:hover,
   button:hover {
-    font-weight: 700; }
+    font-weight: 700;
+    cursor: pointer; }
 
 .contact {
   font-weight: 700;
   position: absolute;
   bottom: 32px;
   left: 32px; }
-  .contact a:hover {
-    text-decoration: line-through; }
+  .contact a:nth-of-type(1):hover {
+    color: blue; }
+  .contact a:nth-of-type(2):hover {
+    color: pink; }
+  .contact a:nth-of-type(3):hover {
+    color: green; }
+  .contact a:nth-of-type(4):hover {
+    color: red; }
   @media (min-width: 768px) {
     .contact {
       top: 32px;
@@ -112,6 +119,18 @@ button {
 
 .bio {
   font-size: 24px; }
+  .bio span {
+    transition: all 10s cubic-bezier(0.83, 1.61, 0.96, 0.01); }
+    .bio span:hover {
+      transition: 0s; }
+      .bio span:hover:nth-child(1n) {
+        color: blue; }
+      .bio span:hover:nth-child(2n) {
+        color: pink; }
+      .bio span:hover:nth-child(3n) {
+        color: red; }
+      .bio span:hover:nth-child(4n) {
+        color: green; }
   @media (min-width: 768px) {
     .bio {
       margin-right: 120px;
@@ -179,6 +198,11 @@ button {
       display: none; } }
 .project-link, .project-year {
   font-weight: 700; }
+.project-link {
+  text-decoration: underline; }
+  .project-link:hover {
+    color: #555;
+    font-weight: 700; }
 .project-utility {
   margin-bottom: 16px; }
 
